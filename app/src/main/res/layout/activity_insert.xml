@@ -32,50 +32,9 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+    <include
+        layout="@layout/module_date" />
 
-        <Button
-            android:text="Today"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_today"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_keyboard_arrow_left_black_48dp"
-            android:id="@+id/imageView"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dateNow"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:textAlignment="center" />
-
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_keyboard_arrow_right_black_48dp"
-            android:id="@+id/imageView2"
-            android:layout_gravity="center" />
-
-        <Button
-            android:text="Calendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_calendar"
-            android:layout_gravity="center" />
-    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -89,21 +48,29 @@
         android:layout_weight="1"
         android:padding="2dp">
 
-        <Button
-            android:text="Income"
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/btn_income"
-            android:layout_weight="1" />
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/opt_group">
+            <RadioButton
+                android:text="수입"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/opt_income"
+                android:layout_weight="1" />
 
-        <Button
-            android:text="Expediture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/btn_expediture"
-            android:layout_weight="1" />
+            <RadioButton
+                android:text="지출"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/opt_expedicure"
+                android:layout_weight="1"
+                android:checked="true"/>
+
+        </RadioGroup>
     </LinearLayout>
 
     <View
@@ -121,6 +88,13 @@
         android:orientation="vertical"
         android:paddingRight="10dp"
         android:weightSum="1">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spi_divide"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp" />
 
         <TextView
             android:text="Money"

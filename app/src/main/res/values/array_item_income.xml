@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_income">
+        <item>용돈</item>
+        <item>월급</item>
+        <item>이월</item>
+        <item>기타</item>
+    </string-array>
+</resources>

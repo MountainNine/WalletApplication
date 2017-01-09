@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_expedicure">
+        <item>식비</item>
+        <item>교통비</item>
+        <item>문화생활</item>
+        <item>생필품</item>
+        <item>저축</item>
+        <item>공과금</item>
+        <item>기타</item>
+    </string-array>
+</resources>

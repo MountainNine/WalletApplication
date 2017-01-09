@@ -45,10 +45,10 @@ public class WeekTabFragment extends Fragment
 
     private LineGraphVO makeLineGraphAllSetting()
     {
-        String[] legendArr = {"1", "2", "3", "4", "5"};
-        float[] graph1 = {500, 100, 300, 200, 100};
-        float[] graph2 = {000, 100, 200, 100, 200};
-        float[] graph3 = {200, 500, 300, 400, 000};
+        String[] legendArr = {"1", "2", "3", "4", "5", "6", "7"};
+        float[] graph1 = {500, 100, 300, 200, 100, 300, 400};
+        float[] graph2 = {000, 100, 200, 100, 200, 100, 200};
+        float[] graph3 = {200, 500, 300, 400, 000, 400, 300};
 
         List<LineGraph> arrGraph = new ArrayList<LineGraph>();
         arrGraph.add(new LineGraph("android", 0xaa66ff33, graph1));
