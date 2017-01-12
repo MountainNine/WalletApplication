@@ -32,7 +32,8 @@ public class DayTabFragment extends Fragment {
     ViewGroup rootView;
     Intent intent;
     ListView listView;
-    MyDBHelper mHelper;
+
+    DataBaseFunc mHelper;
     static SQLiteDatabase db;
     static Cursor cursor;
     static MyCursorAdapter myAdapter;
@@ -95,7 +96,7 @@ public class DayTabFragment extends Fragment {
 
         listView = (ListView) getActivity().findViewById(R.id.lv_description_money);
 
-        mHelper = new MyDBHelper(getActivity());
+        mHelper = new DataBaseFunc(getActivity());
         db=mHelper.getWritableDatabase();
 
         cursor = db.rawQuery(querySelectAll, null);
@@ -202,78 +203,6 @@ public class DayTabFragment extends Fragment {
         myAdapter.changeCursor(cursor);
 
 
-    }
-
-    class MyDBHelper extends SQLiteOpenHelper
-    {
-        public MyDBHelper(Context context)
-        {
-            super(context, "MyData.db", null, 2);
-        }
-
-        public void onCreate(SQLiteDatabase db)
-        {
-            String query = String.format("CREATE TABLE %s ("
-                    + "%s INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + "%s TEXT, "
-                    + "%s INTEGER, "
-                    + "%s INTEGER, "
-                    + "%s TEXT, "
-                    + "%s TEXT );", TABLE_NAME, KEY_ID, KEY_DESCRIPTION, KEY_MONEY, KEY_INEX, KEY_DIVIDE, KEY_DATE );
-            db.execSQL( query );
-        }
-
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-        {
-            if(oldVersion!=2)
-            {
-                String query = String.format("ALTER TABLE %s ADD COLUMN %s INTEGER"
-                        + "ADD COLUMN %s TEXT"
-                        + "ADD COLUMN %s TEXT;", TABLE_NAME, KEY_INEX, KEY_DIVIDE, KEY_DATE);
-                db.execSQL(query);
-                onCreate(db);
-            }
-        }
-    }
-
-    class MyCursorAdapter extends CursorAdapter
-    {
-        @SuppressWarnings("drprecation")
-        public MyCursorAdapter(Context context, Cursor c)
-        {
-            super(context,c);
-        }
-
-        @Override
-        public void bindView(View view, Context context, Cursor cursor)
-        {
-            TextView txt_description = (TextView)view.findViewById(R.id.txt_description_2);
-            TextView txt_money = (TextView)view.findViewById(R.id.txt_money_2);
-
-            String description = cursor.getString(cursor.getColumnIndex(KEY_DESCRIPTION));
-            String money = cursor.getString(cursor.getColumnIndex(KEY_MONEY));
-            int inex = cursor.getInt(cursor.getColumnIndex(KEY_INEX));
-
-            if(inex==1)
-            {
-                txt_money.setTextColor(Color.GREEN);
-            }
-            else if(inex==0)
-            {
-                txt_money.setTextColor(Color.RED);
-            }
-            txt_description.setText(description);
-            txt_money.setText(money);
-
-        }
-
-        @Override
-        public View newView(Context context, Cursor cursor, ViewGroup parent)
-        {
-            LayoutInflater inflater = LayoutInflater.from(context);
-            View v = inflater.inflate(R.layout.listview_custom, parent, false);
-            return v;
-        }
     }
 }
 

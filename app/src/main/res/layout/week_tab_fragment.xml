@@ -11,8 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:id="@+id/line_graph">
-</RelativeLayout>
+    android:id="@+id/line_graph"></RelativeLayout>
 
     <View
         android:layout_width="match_parent"
@@ -24,5 +23,12 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="?android:attr/colorControlHighlight">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_formatWeek"
+            android:visibility="invisible" />
     </RelativeLayout>
 </LinearLayout>
